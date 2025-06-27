@@ -1,3 +1,26 @@
 <resources>
     <string name="app_name">Get Deep</string>
+    <string name="start_game">START GAME</string>
+    <string name="choose_level">Choose Your Level</string>
+    <string name="ice_breaker_title">Ice Breaker</string>
+    <string name="ice_breaker_desc">Light and fun questions to warm up</string>
+    <string name="deep_title">Deep</string>
+    <string name="deep_desc">More personal questions to get to know each other</string>
+    <string name="deeper_title">Deeper</string>
+    <string name="deeper_desc">Intimate questions for couples ready to go deeper</string>
+    <string name="hashtag">#LetsGetDeep</string>
+    <string name="previous">Previous</string>
+    <string name="next">Next</string>
+    <string name="new_question">Nova pergunta</string>
+    <string name="back">Voltar</string>
+    <string name="time_to_answer">Time to Answer!</string>
+    <string name="share_thoughts">Share your thoughts and feelings about this question</string>
+    <string name="tap_to_reveal">Tap or swipe to reveal answer side</string>
+    <string name="tap_to_go_back">Tap or swipe to go back</string>
+    <string name="instructions_title">Instructions</string>
+    <string name="intro_text">Time to put down your phone and learn about who you spend 99% of your time with.</string>
+    <string name="divide_cards">Divide the cards into the 3 designated piles: "Ice Breaker," "Deep," and "Deeper."</string>
+    <string name="game_rules">Players alternate turns reading and answering the questions, starting with the Ice Breaker Card and then working their way on to the 2 Deep and then 2 Deeper Cards.</string>
+    <string name="game_end">Play until you know too much about each other... or it\'s time to take it to the bedroom.</string>
+    <string name="creators">FROM THE CREATORS OF\nWHAT DO YOU MEME?</string>
 </resources>
