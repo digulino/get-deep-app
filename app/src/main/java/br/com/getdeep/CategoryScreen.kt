@@ -16,7 +16,6 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun CategoryScreen(
     onCategorySelected: (String) -> Unit,
@@ -53,7 +52,7 @@ fun CategoryScreen(
                 }
 
                 Text(
-                    text = "Choose Your Level",
+                    text = "Escolha Seu Nível",
                     fontSize = 24.sp,
                     fontWeight = FontWeight.Bold,
                     color = Color.White,
@@ -68,8 +67,8 @@ fun CategoryScreen(
 
             // Category cards
             CategoryCard(
-                title = "Ice Breaker",
-                description = "Light and fun questions to warm up",
+                title = "Quebra-Gelo",
+                description = "Perguntas leves e divertidas para esquentar",
                 backgroundColor = Color(0xFF34D399),
                 onClick = { onCategorySelected("ice_breaker") }
             )
@@ -77,8 +76,8 @@ fun CategoryScreen(
             Spacer(modifier = Modifier.height(20.dp))
 
             CategoryCard(
-                title = "Deep",
-                description = "More personal questions to get to know each other",
+                title = "Profundo",
+                description = "Perguntas mais pessoais para se conhecerem melhor",
                 backgroundColor = Color(0xFF60A5FA),
                 onClick = { onCategorySelected("deep") }
             )
@@ -86,8 +85,8 @@ fun CategoryScreen(
             Spacer(modifier = Modifier.height(20.dp))
 
             CategoryCard(
-                title = "Deeper",
-                description = "Intimate questions for couples ready to go deeper",
+                title = "Mais Profundo",
+                description = "Perguntas íntimas para casais prontos para ir mais fundo",
                 backgroundColor = Color(0xFFEC4899),
                 onClick = { onCategorySelected("deeper") }
             )
@@ -95,7 +94,7 @@ fun CategoryScreen(
             Spacer(modifier = Modifier.weight(1f))
 
             Text(
-                text = "#LetsGetDeep",
+                text = "#VamosAprofundar",
                 fontSize = 16.sp,
                 color = Color.White.copy(alpha = 0.7f),
                 textAlign = TextAlign.Center,
@@ -105,6 +104,7 @@ fun CategoryScreen(
     }
 }
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun CategoryCard(
     title: String,

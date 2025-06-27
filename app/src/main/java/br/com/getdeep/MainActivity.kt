@@ -3,7 +3,6 @@ package br.com.getdeep
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -13,8 +12,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
@@ -84,7 +81,7 @@ fun HomeScreen(onStartGame: () -> Unit) {
         ) {
             // Title
             Text(
-                text = "Let's Get\nDeep",
+                text = "Vamos\nAprofundar",
                 fontSize = 56.sp,
                 fontWeight = FontWeight.Bold,
                 color = Color.White,
@@ -95,7 +92,7 @@ fun HomeScreen(onStartGame: () -> Unit) {
             Spacer(modifier = Modifier.height(16.dp))
 
             Text(
-                text = "Instructions",
+                text = "Instruções",
                 fontSize = 20.sp,
                 color = Color.White.copy(alpha = 0.9f),
                 textAlign = TextAlign.Center
@@ -117,7 +114,7 @@ fun HomeScreen(onStartGame: () -> Unit) {
                     modifier = Modifier.padding(24.dp)
                 ) {
                     Text(
-                        text = "Time to put down your phone and learn about who you spend 99% of your time with.",
+                        text = "Hora de largar o celular e conhecer melhor a pessoa com quem você passa 99% do seu tempo.",
                         fontSize = 16.sp,
                         color = Color.White,
                         textAlign = TextAlign.Center,
@@ -127,7 +124,7 @@ fun HomeScreen(onStartGame: () -> Unit) {
                     Spacer(modifier = Modifier.height(16.dp))
 
                     Text(
-                        text = "Divide the cards into the 3 designated piles: \"Ice Breaker,\" \"Deep,\" and \"Deeper.\"",
+                        text = "Dividam as cartas em 3 pilhas: \"Quebra-Gelo\", \"Profundo\" e \"Mais Profundo\".",
                         fontSize = 14.sp,
                         color = Color.White.copy(alpha = 0.9f),
                         textAlign = TextAlign.Center,
@@ -137,7 +134,7 @@ fun HomeScreen(onStartGame: () -> Unit) {
                     Spacer(modifier = Modifier.height(12.dp))
 
                     Text(
-                        text = "Players alternate turns reading and answering the questions, starting with the Ice Breaker Card and then working their way on to the 2 Deep and then 2 Deeper Cards.",
+                        text = "Os jogadores se alternam lendo e respondendo as perguntas, começando pelo Quebra-Gelo, depois 2 do Profundo e 2 do Mais Profundo.",
                         fontSize = 14.sp,
                         color = Color.White.copy(alpha = 0.9f),
                         textAlign = TextAlign.Center,
@@ -147,7 +144,7 @@ fun HomeScreen(onStartGame: () -> Unit) {
                     Spacer(modifier = Modifier.height(12.dp))
 
                     Text(
-                        text = "Play until you know too much about each other... or it's time to take it to the bedroom.",
+                        text = "Joguem até saberem demais um do outro... ou até ser hora de ir para o quarto.",
                         fontSize = 14.sp,
                         color = Color.White.copy(alpha = 0.9f),
                         textAlign = TextAlign.Center,
@@ -172,7 +169,7 @@ fun HomeScreen(onStartGame: () -> Unit) {
                 shape = RoundedCornerShape(28.dp)
             ) {
                 Text(
-                    text = "START GAME",
+                    text = "COMEÇAR JOGO",
                     fontSize = 18.sp,
                     fontWeight = FontWeight.Bold
                 )
@@ -181,7 +178,7 @@ fun HomeScreen(onStartGame: () -> Unit) {
             Spacer(modifier = Modifier.height(24.dp))
 
             Text(
-                text = "FROM THE CREATORS OF\nWHAT DO YOU MEME?",
+                text = "DOS CRIADORES DE\nWHAT DO YOU MEME?",
                 fontSize = 12.sp,
                 color = Color.White.copy(alpha = 0.7f),
                 textAlign = TextAlign.Center,
