@@ -38,22 +38,18 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun GetDeepApp() {
     var currentScreen by remember { mutableStateOf("home") }
-    var selectedCategory by remember { mutableStateOf("") }
 
     when (currentScreen) {
         "home" -> HomeScreen(
-            onStartGame = { currentScreen = "categories" }
+            onStartGame = { currentScreen = "menu" }
         )
-        "categories" -> CategoryScreen(
-            onCategorySelected = { category ->
-                selectedCategory = category
-                currentScreen = "game"
-            },
-            onBack = { currentScreen = "home" }
+        "menu" -> MenuScreen(
+            onBack = { currentScreen = "home" },
+            onStartGame = { currentScreen = "game" }
         )
         "game" -> GameScreen(
-            category = selectedCategory,
-            onBack = { currentScreen = "categories" }
+            category = "", // Não precisa mais da categoria
+            onBack = { currentScreen = "menu" }
         )
     }
 }
@@ -81,7 +77,7 @@ fun HomeScreen(onStartGame: () -> Unit) {
         ) {
             // Title
             Text(
-                text = "Vamos\nAprofundar",
+                text = "Let's Get Deep",
                 fontSize = 56.sp,
                 fontWeight = FontWeight.Bold,
                 color = Color.White,

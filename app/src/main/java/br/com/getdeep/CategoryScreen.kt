@@ -94,7 +94,7 @@ fun CategoryScreen(
             Spacer(modifier = Modifier.weight(1f))
 
             Text(
-                text = "#VamosAprofundar",
+                text = "#LetsGetDeep",
                 fontSize = 16.sp,
                 color = Color.White.copy(alpha = 0.7f),
                 textAlign = TextAlign.Center,
