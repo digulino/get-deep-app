@@ -45,10 +45,14 @@ fun GetDeepApp() {
         )
         "menu" -> MenuScreen(
             onBack = { currentScreen = "home" },
-            onStartGame = { currentScreen = "game" }
+            onStartGame = { currentScreen = "game" },
+            onShowStatistics = { currentScreen = "statistics" }
         )
         "game" -> GameScreen(
             category = "", // Não precisa mais da categoria
+            onBack = { currentScreen = "menu" }
+        )
+        "statistics" -> StatisticsScreen(
             onBack = { currentScreen = "menu" }
         )
     }
@@ -56,7 +60,7 @@ fun GetDeepApp() {
 
 @Composable
 fun HomeScreen(onStartGame: () -> Unit) {
-    Box(
+    BoxWithConstraints(
         modifier = Modifier
             .fillMaxSize()
             .background(
@@ -68,118 +72,125 @@ fun HomeScreen(onStartGame: () -> Unit) {
                 )
             )
     ) {
+        val isSmallScreen = maxHeight < 600.dp
+
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(32.dp),
+                .padding(
+                    horizontal = 24.dp,
+                    vertical = if (isSmallScreen) 16.dp else 32.dp
+                ),
             horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.Center
+            verticalArrangement = if (isSmallScreen)
+                Arrangement.spacedBy(8.dp, Alignment.CenterVertically)
+            else
+                Arrangement.Center
         ) {
             // Title
             Text(
                 text = "Let's Get Deep",
-                fontSize = 56.sp,
+                fontSize = if (isSmallScreen) 36.sp else 56.sp,
                 fontWeight = FontWeight.Bold,
                 color = Color.White,
                 textAlign = TextAlign.Center,
-                lineHeight = 60.sp
+                lineHeight = if (isSmallScreen) 40.sp else 60.sp
             )
 
-            Spacer(modifier = Modifier.height(16.dp))
+            if (!isSmallScreen) {
+                Spacer(modifier = Modifier.height(16.dp))
+            }
 
             Text(
                 text = "Instruções",
-                fontSize = 20.sp,
+                fontSize = if (isSmallScreen) 16.sp else 20.sp,
                 color = Color.White.copy(alpha = 0.9f),
                 textAlign = TextAlign.Center
             )
 
-            Spacer(modifier = Modifier.height(32.dp))
+            if (!isSmallScreen) {
+                Spacer(modifier = Modifier.height(32.dp))
+            }
 
             // Instructions
             Card(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(horizontal = 16.dp),
+                    .weight(1f, fill = false)
+                    .padding(horizontal = if (isSmallScreen) 8.dp else 16.dp),
                 colors = CardDefaults.cardColors(
                     containerColor = Color.White.copy(alpha = 0.1f)
                 ),
                 shape = RoundedCornerShape(16.dp)
             ) {
                 Column(
-                    modifier = Modifier.padding(24.dp)
+                    modifier = Modifier.padding(
+                        if (isSmallScreen) 16.dp else 24.dp
+                    )
                 ) {
                     Text(
                         text = "Hora de largar o celular e conhecer melhor a pessoa com quem você passa 99% do seu tempo.",
-                        fontSize = 16.sp,
+                        fontSize = if (isSmallScreen) 13.sp else 16.sp,
                         color = Color.White,
                         textAlign = TextAlign.Center,
-                        lineHeight = 22.sp
+                        lineHeight = if (isSmallScreen) 18.sp else 22.sp
                     )
 
-                    Spacer(modifier = Modifier.height(16.dp))
+                    Spacer(modifier = Modifier.height(if (isSmallScreen) 8.dp else 16.dp))
 
                     Text(
                         text = "Dividam as cartas em 3 pilhas: \"Quebra-Gelo\", \"Profundo\" e \"Mais Profundo\".",
-                        fontSize = 14.sp,
+                        fontSize = if (isSmallScreen) 11.sp else 14.sp,
                         color = Color.White.copy(alpha = 0.9f),
                         textAlign = TextAlign.Center,
-                        lineHeight = 20.sp
+                        lineHeight = if (isSmallScreen) 16.sp else 20.sp
                     )
 
-                    Spacer(modifier = Modifier.height(12.dp))
+                    Spacer(modifier = Modifier.height(if (isSmallScreen) 6.dp else 12.dp))
 
                     Text(
-                        text = "Os jogadores se alternam lendo e respondendo as perguntas, começando pelo Quebra-Gelo, depois 2 do Profundo e 2 do Mais Profundo.",
-                        fontSize = 14.sp,
+                        text = "Os jogadores se alternam lendo e respondendo as perguntas, começando por 2 Quebra-Gelo, depois 2 Profundas e 1 Mais Profunda.",
+                        fontSize = if (isSmallScreen) 11.sp else 14.sp,
                         color = Color.White.copy(alpha = 0.9f),
                         textAlign = TextAlign.Center,
-                        lineHeight = 20.sp
+                        lineHeight = if (isSmallScreen) 16.sp else 20.sp
                     )
 
-                    Spacer(modifier = Modifier.height(12.dp))
+                    Spacer(modifier = Modifier.height(if (isSmallScreen) 6.dp else 12.dp))
 
                     Text(
                         text = "Joguem até saberem demais um do outro... ou até ser hora de ir para o quarto.",
-                        fontSize = 14.sp,
+                        fontSize = if (isSmallScreen) 11.sp else 14.sp,
                         color = Color.White.copy(alpha = 0.9f),
                         textAlign = TextAlign.Center,
-                        lineHeight = 20.sp
+                        lineHeight = if (isSmallScreen) 16.sp else 20.sp
                     )
                 }
             }
 
-            Spacer(modifier = Modifier.height(48.dp))
+            if (!isSmallScreen) {
+                Spacer(modifier = Modifier.height(48.dp))
+            }
 
-            // Start button
+            // Start button - SEMPRE VISÍVEL
             Button(
                 onClick = onStartGame,
                 modifier = Modifier
                     .fillMaxWidth()
-                    .height(56.dp)
-                    .padding(horizontal = 32.dp),
+                    .height(if (isSmallScreen) 48.dp else 56.dp)
+                    .padding(horizontal = if (isSmallScreen) 16.dp else 32.dp),
                 colors = ButtonDefaults.buttonColors(
                     containerColor = Color.White,
                     contentColor = Color(0xFF6B46C1)
                 ),
-                shape = RoundedCornerShape(28.dp)
+                shape = RoundedCornerShape(if (isSmallScreen) 24.dp else 28.dp)
             ) {
                 Text(
                     text = "COMEÇAR JOGO",
-                    fontSize = 18.sp,
+                    fontSize = if (isSmallScreen) 14.sp else 18.sp,
                     fontWeight = FontWeight.Bold
                 )
             }
-
-            Spacer(modifier = Modifier.height(24.dp))
-
-            Text(
-                text = "DOS CRIADORES DE\nWHAT DO YOU MEME?",
-                fontSize = 12.sp,
-                color = Color.White.copy(alpha = 0.7f),
-                textAlign = TextAlign.Center,
-                fontWeight = FontWeight.Bold
-            )
         }
     }
 }

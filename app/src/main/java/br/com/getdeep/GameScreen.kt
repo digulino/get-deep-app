@@ -207,7 +207,7 @@ fun QuestionDrawnContent(gameState: GameState) {
             .fillMaxWidth()
             .padding(16.dp),
         colors = CardDefaults.cardColors(
-            containerColor = Color.White.copy(alpha = 0.95f)
+            containerColor = Color.White // CORRIGIDO: Branco sólido sem transparência
         ),
         shape = RoundedCornerShape(20.dp),
         elevation = CardDefaults.cardElevation(defaultElevation = 12.dp)
@@ -231,7 +231,7 @@ fun QuestionDrawnContent(gameState: GameState) {
             Text(
                 text = gameState.currentQuestion ?: "",
                 fontSize = 20.sp,
-                color = Color.Black,
+                color = Color(0xFF1A1A1A), // CORRIGIDO: Preto sólido para máxima legibilidade
                 textAlign = TextAlign.Center,
                 lineHeight = 28.sp
             )
@@ -241,7 +241,7 @@ fun QuestionDrawnContent(gameState: GameState) {
             Text(
                 text = "Querem jogar esta pergunta?",
                 fontSize = 16.sp,
-                color = Color.Gray,
+                color = Color(0xFF666666), // CORRIGIDO: Cinza escuro para boa legibilidade
                 textAlign = TextAlign.Center
             )
 
@@ -255,7 +255,7 @@ fun QuestionDrawnContent(gameState: GameState) {
                     onClick = { gameState.rejectQuestion() },
                     modifier = Modifier.weight(1f),
                     colors = ButtonDefaults.outlinedButtonColors(
-                        contentColor = Color.Gray
+                        contentColor = Color(0xFF666666) // CORRIGIDO: Cinza escuro
                     )
                 ) {
                     Icon(
@@ -295,7 +295,7 @@ fun QuestionPlayingContent(gameState: GameState) {
             .fillMaxWidth()
             .padding(16.dp),
         colors = CardDefaults.cardColors(
-            containerColor = Color.White.copy(alpha = 0.95f)
+            containerColor = Color.White // CORRIGIDO: Branco sólido sem transparência
         ),
         shape = RoundedCornerShape(20.dp),
         elevation = CardDefaults.cardElevation(defaultElevation = 12.dp)
@@ -319,7 +319,7 @@ fun QuestionPlayingContent(gameState: GameState) {
             Text(
                 text = gameState.currentQuestion ?: "",
                 fontSize = 20.sp,
-                color = Color.Black,
+                color = Color(0xFF1A1A1A), // CORRIGIDO: Preto sólido
                 textAlign = TextAlign.Center,
                 lineHeight = 28.sp
             )
@@ -329,7 +329,7 @@ fun QuestionPlayingContent(gameState: GameState) {
             Text(
                 text = "Ambos devem responder esta pergunta",
                 fontSize = 16.sp,
-                color = Color.Gray,
+                color = Color(0xFF666666), // CORRIGIDO: Cinza escuro
                 textAlign = TextAlign.Center
             )
 
@@ -361,7 +361,7 @@ fun RoundCompleteContent(gameState: GameState) {
             .fillMaxWidth()
             .padding(16.dp),
         colors = CardDefaults.cardColors(
-            containerColor = Color.White.copy(alpha = 0.95f)
+            containerColor = Color.White // CORRIGIDO: Branco sólido sem transparência
         ),
         shape = RoundedCornerShape(20.dp),
         elevation = CardDefaults.cardElevation(defaultElevation = 12.dp)
@@ -384,7 +384,7 @@ fun RoundCompleteContent(gameState: GameState) {
                 text = "Round ${gameState.currentRound.roundNumber} Completo!",
                 fontSize = 24.sp,
                 fontWeight = FontWeight.Bold,
-                color = Color.Black,
+                color = Color(0xFF1A1A1A), // CORRIGIDO: Preto sólido
                 textAlign = TextAlign.Center
             )
 
@@ -393,7 +393,7 @@ fun RoundCompleteContent(gameState: GameState) {
             Text(
                 text = "Vocês completaram todas as ${gameState.currentRound.getTotalQuestionsInRound()} perguntas deste round. Prontos para o próximo?",
                 fontSize = 16.sp,
-                color = Color.Gray,
+                color = Color(0xFF666666), // CORRIGIDO: Cinza escuro
                 textAlign = TextAlign.Center,
                 lineHeight = 22.sp
             )

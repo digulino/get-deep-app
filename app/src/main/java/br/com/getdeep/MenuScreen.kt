@@ -3,13 +3,17 @@ package br.com.getdeep
 import androidx.compose.animation.core.*
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material.icons.filled.PlayArrow
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.Info
-import androidx.compose.material.icons.filled.Refresh
+
+import androidx.compose.material.icons.filled.KeyboardArrowDown
+import androidx.compose.material.icons.filled.KeyboardArrowUp
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
@@ -24,11 +28,13 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.window.Dialog
 import br.com.getdeep.data.GameRepository
+import br.com.getdeep.data.Questions
 
 @Composable
 fun MenuScreen(
     onBack: () -> Unit,
-    onStartGame: () -> Unit
+    onStartGame: () -> Unit,
+    onShowStatistics: () -> Unit = {}
 ) {
     val context = androidx.compose.ui.platform.LocalContext.current
     val repository = remember { GameRepository(context) }
@@ -114,25 +120,17 @@ fun MenuScreen(
                     }
                 )
 
-                // Card Estatísticas
+                // Card Estatísticas Detalhadas
                 MenuCard(
-                    title = "Estatísticas",
-                    subtitle = "Ver perguntas jogadas por categoria",
+                    title = "Estatísticas Detalhadas",
+                    subtitle = "Ver histórico completo com perguntas respondidas",
                     icon = Icons.Default.Info,
                     backgroundColor = Color(0xFFEC4899),
-                    onClick = { showStatistics = true }
+                    onClick = onShowStatistics
                 )
             }
 
             Spacer(modifier = Modifier.weight(1f))
-
-            Text(
-                text = "#VamosAprofundar",
-                fontSize = 16.sp,
-                color = Color.White.copy(alpha = 0.7f),
-                textAlign = TextAlign.Center,
-                modifier = Modifier.fillMaxWidth()
-            )
         }
     }
 
